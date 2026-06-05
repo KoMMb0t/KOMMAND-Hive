@@ -45,7 +45,7 @@
   <header class="header">
     <div class="header-info">
       <span class="active-name" id="active-name">No agent active</span>
-      <span class="active-label" id="active-label"></span>
+      <span class="active-label" id="active-label" style="display:none"></span>
     </div>
     <div class="header-actions">
       <button class="header-btn" id="btn-reload" title="Reload">↺</button>
@@ -64,7 +64,7 @@
     </div>
   </main>
 
-  <!-- Modal -->
+  <!-- Agent Cell Modal -->
   <div class="modal-overlay" id="modal-overlay" style="display:none">
     <div class="modal">
       <div class="modal-header">
@@ -76,16 +76,41 @@
         <div class="modal-form" id="modal-form" style="display:none">
           <label class="form-label">
             Cell Label
-            <input type="text" class="form-input" id="input-label" placeholder="e.g. Researcher, Coder, Scout..." />
+            <input type="text" class="form-input" id="input-label" placeholder="e.g. Researcher, Coder, Scout…" />
           </label>
           <label class="form-label" id="custom-url-group" style="display:none">
             URL
-            <input type="url" class="form-input" id="input-url" placeholder="https://..." />
+            <input type="url" class="form-input" id="input-url" placeholder="https://…" />
           </label>
-          <button class="form-submit" id="btn-create">Spawn Agent Cell</button>
+          <button class="form-submit" id="btn-create">⚡ Spawn Agent Cell</button>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- 🔑 API Key FAB -->
+  <button id="apikey-fab" title="API Keys — Token-Links & Eingabe">🔑</button>
+
+  <!-- 🔑 API Key Panel -->
+  <div id="apikey-panel" style="display:none">
+    <div class="akp-header">
+      <span>🔑 API Tokens</span>
+      <button id="apikey-panel-close">✕</button>
+    </div>
+    <div class="akp-list" id="apikey-list"></div>
+  </div>
+
+  <!-- 🔗 Hive Connect FAB -->
+  <button id="hive-fab" title="Mit Hive verbinden — andere Apps anknüpfen">🔗</button>
+
+  <!-- 🔗 Hive Connect Panel -->
+  <div id="hive-panel" style="display:none">
+    <div class="hive-panel-title">🔗 Mit Hive verbinden</div>
+    <div class="hive-url-row">
+      <input type="text" class="hive-url-input" id="hive-url-input" placeholder="AgenticFlow / KommBotHub URL…" />
+      <button class="hive-connect-btn" id="hive-connect-btn">Verbinden</button>
+    </div>
+    <div class="hive-status" id="hive-status">Verbinde Apps über die Hive-API</div>
   </div>
 
   <script src="renderer.js"></script>
