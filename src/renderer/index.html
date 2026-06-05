@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>KOMMAND Hive</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="app-logo">🐝</div>
+      <div class="app-brand">
+        <span class="app-name">KOMMAND</span>
+        <span class="app-sub">Hive</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="section-label">Agent Cells</div>
+      <div class="agent-list" id="agent-list"></div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section">
+      <div class="section-label">Workspace</div>
+      <button class="workspace-btn" id="btn-missions" title="Ctrl+M">
+        <span class="workspace-icon">🎯</span> Mission Board
+      </button>
+      <button class="workspace-btn" id="btn-hivemind" title="Ctrl+H">
+        <span class="workspace-icon">🍯</span> Hivemind
+      </button>
+    </div>
+
+    <button class="add-agent-btn" id="btn-add">
+      <span>＋</span> New Agent Cell
+    </button>
+  </aside>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-info">
+      <span class="active-name" id="active-name">No agent active</span>
+      <span class="active-label" id="active-label"></span>
+    </div>
+    <div class="header-actions">
+      <button class="header-btn" id="btn-reload" title="Reload">↺</button>
+      <button class="header-btn header-btn--warn" id="btn-logout" title="Logout">⏻</button>
+      <button class="header-btn header-btn--danger" id="btn-remove" title="Remove">✕</button>
+    </div>
+  </header>
+
+  <!-- Placeholder -->
+  <main class="placeholder" id="placeholder">
+    <div class="placeholder-content">
+      <div class="placeholder-logo">🐝</div>
+      <h2>KOMMAND Hive</h2>
+      <p>Command your AI swarm.<br/>Add your first agent cell to get started.</p>
+      <button class="placeholder-btn" id="btn-add-placeholder">＋ New Agent Cell</button>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal-overlay" style="display:none">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>New Agent Cell</h2>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="template-grid" id="template-grid"></div>
+        <div class="modal-form" id="modal-form" style="display:none">
+          <label class="form-label">
+            Cell Label
+            <input type="text" class="form-input" id="input-label" placeholder="e.g. Researcher, Coder, Scout..." />
+          </label>
+          <label class="form-label" id="custom-url-group" style="display:none">
+            URL
+            <input type="url" class="form-input" id="input-url" placeholder="https://..." />
+          </label>
+          <button class="form-submit" id="btn-create">Spawn Agent Cell</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
