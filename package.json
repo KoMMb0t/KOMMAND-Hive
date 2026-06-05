@@ -1,0 +1,50 @@
+{
+  "name": "kommand-hive",
+  "version": "0.1.0",
+  "description": "Command your AI swarm — Multi-agent orchestration platform",
+  "main": "src/main/index.js",
+  "author": "KoMMb0t",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm dev:renderer\" \"pnpm dev:main\"",
+    "dev:renderer": "vite",
+    "dev:main": "electron .",
+    "build": "pnpm build:renderer && electron-builder",
+    "build:renderer": "vite build",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "test": "vitest"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "electron-store": "^8.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "build": {
+    "appId": "com.kommb0t.kommand-hive",
+    "productName": "KOMMAND Hive",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
